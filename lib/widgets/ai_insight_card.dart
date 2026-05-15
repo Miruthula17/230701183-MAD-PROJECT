@@ -13,7 +13,7 @@ class AiInsightCard extends StatelessWidget {
     required this.title,
     required this.content,
     this.icon = Icons.auto_awesome,
-    this.gradientColors = const [Color(0xFF0A66C2), Color(0xFFE84393)],
+    this.gradientColors = const [Color(0xFF0A66C2), Color(0xFF70B5F9)],
     this.isLoading = false,
     this.onRefresh,
   });
@@ -44,8 +44,8 @@ class AiInsightCard extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  gradientColors[0].withValues(alpha: 0.15),
-                  gradientColors[1].withValues(alpha: 0.08),
+                  Color(0xFF0A66C2).withValues(alpha: 0.08),
+                  Color(0xFF0A66C2).withValues(alpha: 0.03),
                 ],
               ),
               borderRadius: const BorderRadius.vertical(
@@ -54,13 +54,7 @@ class AiInsightCard extends StatelessWidget {
             ),
             child: Row(
               children: [
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (bounds) => LinearGradient(
-                    colors: gradientColors,
-                  ).createShader(bounds),
-                  child: Icon(icon, size: 20),
-                ),
+                Icon(icon, size: 20, color: const Color(0xFF0A66C2)),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
@@ -68,7 +62,7 @@ class AiInsightCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFF191919),
+                      color: Color(0xFF0A66C2),
                     ),
                   ),
                 ),

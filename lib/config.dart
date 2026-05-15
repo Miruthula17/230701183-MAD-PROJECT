@@ -5,7 +5,7 @@ class Config {
 
   // Gemini AI
   static const String geminiApiKey = 'AIzaSyD82_emFDQwuuSWENTOaH8ohy9pd3XJtuU';
-  static const String geminiModel = 'gemini-2.0-flash';
+  static const String geminiModel = 'gemini-2.5-flash';
   static const String geminiUrl =
       'https://generativelanguage.googleapis.com/v1beta/models/$geminiModel:generateContent';
 
