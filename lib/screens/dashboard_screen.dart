@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import '../providers/jobs_provider.dart';
-import '../models/job.dart';
 import 'add_job_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -21,7 +20,7 @@ class DashboardScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF6C5CE7), Color(0xFFA29BFE)],
+                  colors: [Color(0xFF0A66C2), Color(0xFF70B5F9)],
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -74,7 +73,7 @@ class DashboardScreen extends StatelessWidget {
             title: 'Total',
             value: '${provider.totalJobs}',
             icon: Icons.work_rounded,
-            gradient: const [Color(0xFF6C5CE7), Color(0xFFA29BFE)],
+            gradient: const [Color(0xFF0A66C2), Color(0xFF70B5F9)],
           ),
         ),
         const SizedBox(width: 12),
@@ -83,7 +82,7 @@ class DashboardScreen extends StatelessWidget {
             title: 'Interviews',
             value: '${provider.countByStatus('interview')}',
             icon: Icons.forum_rounded,
-            gradient: const [Color(0xFFA29BFE), Color(0xFFD63384)],
+            gradient: const [Color(0xFF70B5F9), Color(0xFF70B5F9)],
           ),
         ),
         const SizedBox(width: 12),
@@ -92,7 +91,7 @@ class DashboardScreen extends StatelessWidget {
             title: 'Response',
             value: '${provider.responseRate.toStringAsFixed(0)}%',
             icon: Icons.trending_up_rounded,
-            gradient: const [Color(0xFF00B894), Color(0xFF00CEC9)],
+            gradient: const [Color(0xFF057642), Color(0xFF057642)],
           ),
         ),
       ],
@@ -109,33 +108,33 @@ class DashboardScreen extends StatelessWidget {
     }
 
     final statusData = [
-      _ChartData('Wishlist', provider.countByStatus('wishlist'), const Color(0xFFFDCB6E)),
-      _ChartData('Applied', provider.countByStatus('applied'), const Color(0xFF74B9FF)),
-      _ChartData('Interview', provider.countByStatus('interview'), const Color(0xFFA29BFE)),
-      _ChartData('Offer', provider.countByStatus('offer'), const Color(0xFF00B894)),
-      _ChartData('Rejected', provider.countByStatus('rejected'), const Color(0xFFE17055)),
+      _ChartData('Wishlist', provider.countByStatus('wishlist'), const Color(0xFFE8A723)),
+      _ChartData('Applied', provider.countByStatus('applied'), const Color(0xFF70B5F9)),
+      _ChartData('Interview', provider.countByStatus('interview'), const Color(0xFF70B5F9)),
+      _ChartData('Offer', provider.countByStatus('offer'), const Color(0xFF057642)),
+      _ChartData('Rejected', provider.countByStatus('rejected'), const Color(0xFFCC1016)),
     ].where((d) => d.count > 0).toList();
 
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF2A2A4A)),
+        border: Border.all(color: const Color(0xFFEBEBEB)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.pie_chart_rounded, size: 20, color: Color(0xFFA29BFE)),
+              const Icon(Icons.pie_chart_rounded, size: 20, color: Color(0xFF70B5F9)),
               const SizedBox(width: 8),
               const Text(
                 'Status Breakdown',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: const Color(0xFF191919),
                 ),
               ),
             ],
@@ -157,7 +156,7 @@ class DashboardScreen extends StatelessWidget {
                           titleStyle: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: const Color(0xFF191919),
                           ),
                           radius: 50,
                           titlePositionPercentageOffset: 0.55,
@@ -193,7 +192,7 @@ class DashboardScreen extends StatelessWidget {
                                 d.label,
                                 style: TextStyle(
                                   fontSize: 13,
-                                  color: Colors.grey[400],
+                                  color: Colors.grey[600],
                                 ),
                               ),
                             ),
@@ -202,7 +201,7 @@ class DashboardScreen extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.white,
+                                color: const Color(0xFF191919),
                               ),
                             ),
                           ],
@@ -226,23 +225,23 @@ class DashboardScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF2A2A4A)),
+        border: Border.all(color: const Color(0xFFEBEBEB)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.bar_chart_rounded, size: 20, color: Color(0xFF74B9FF)),
+              const Icon(Icons.bar_chart_rounded, size: 20, color: Color(0xFF70B5F9)),
               const SizedBox(width: 8),
               const Text(
                 'Weekly Activity',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: const Color(0xFF191919),
                 ),
               ),
             ],
@@ -272,7 +271,7 @@ class DashboardScreen extends StatelessWidget {
                               keys[value.toInt()],
                               style: TextStyle(
                                 fontSize: 11,
-                                color: Colors.grey[500],
+                                color: Colors.grey[600],
                               ),
                             ),
                           );
@@ -296,8 +295,8 @@ class DashboardScreen extends StatelessWidget {
                         borderRadius: const BorderRadius.vertical(top: Radius.circular(6)),
                         gradient: LinearGradient(
                           colors: [
-                            const Color(0xFF6C5CE7).withValues(alpha: 0.8),
-                            const Color(0xFFA29BFE),
+                            const Color(0xFF0A66C2).withValues(alpha: 0.8),
+                            const Color(0xFF70B5F9),
                           ],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
@@ -327,23 +326,23 @@ class DashboardScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF2A2A4A)),
+        border: Border.all(color: const Color(0xFFEBEBEB)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.event_rounded, size: 20, color: Color(0xFFFDCB6E)),
+              const Icon(Icons.event_rounded, size: 20, color: Color(0xFFE8A723)),
               const SizedBox(width: 8),
               const Text(
                 'Upcoming Interviews',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: const Color(0xFF191919),
                 ),
               ),
             ],
@@ -352,10 +351,10 @@ class DashboardScreen extends StatelessWidget {
           ...upcoming.map((job) {
             final days = job.daysUntilInterview!;
             final urgencyColor = days <= 1
-                ? const Color(0xFFE17055)
+                ? const Color(0xFFCC1016)
                 : days <= 3
-                    ? const Color(0xFFFDCB6E)
-                    : const Color(0xFF00B894);
+                    ? const Color(0xFFE8A723)
+                    : const Color(0xFF057642);
             return Container(
               margin: const EdgeInsets.only(bottom: 8),
               padding: const EdgeInsets.all(12),
@@ -401,20 +400,20 @@ class DashboardScreen extends StatelessWidget {
                             job.company,
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: const Color(0xFF191919),
                               fontSize: 14,
                             ),
                           ),
                           Text(
                             job.role,
-                            style: TextStyle(fontSize: 12, color: Colors.grey[400]),
+                            style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                           ),
                         ],
                       ),
                     ),
                     Text(
                       DateFormat('MMM dd').format(DateTime.parse(job.interviewDate)),
-                      style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                     ),
                   ],
                 ),
@@ -439,23 +438,23 @@ class DashboardScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF2A2A4A)),
+        border: Border.all(color: const Color(0xFFEBEBEB)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.history_rounded, size: 20, color: Color(0xFF00CEC9)),
+              const Icon(Icons.history_rounded, size: 20, color: Color(0xFF057642)),
               const SizedBox(width: 8),
               const Text(
                 'Recent Jobs',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: const Color(0xFF191919),
                 ),
               ),
             ],
@@ -503,13 +502,13 @@ class DashboardScreen extends StatelessWidget {
                               job.company,
                               style: const TextStyle(
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white,
+                                color: const Color(0xFF191919),
                                 fontSize: 14,
                               ),
                             ),
                             Text(
                               job.role,
-                              style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+                              style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                             ),
                           ],
                         ),
@@ -544,15 +543,15 @@ class DashboardScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color(0xFF2A2A4A)),
+        border: Border.all(color: const Color(0xFFEBEBEB)),
       ),
       child: Column(
         children: [
           Icon(icon, size: 40, color: Colors.grey[700]),
           const SizedBox(height: 8),
-          Text(title, style: TextStyle(color: Colors.grey[500], fontWeight: FontWeight.w600)),
+          Text(title, style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w600)),
           const SizedBox(height: 4),
           Text(subtitle, style: TextStyle(color: Colors.grey[700], fontSize: 12)),
         ],
@@ -563,17 +562,17 @@ class DashboardScreen extends StatelessWidget {
   Color _statusColor(String status) {
     switch (status) {
       case 'wishlist':
-        return const Color(0xFFFDCB6E);
+        return const Color(0xFFE8A723);
       case 'applied':
-        return const Color(0xFF74B9FF);
+        return const Color(0xFF70B5F9);
       case 'interview':
-        return const Color(0xFFA29BFE);
+        return const Color(0xFF70B5F9);
       case 'offer':
-        return const Color(0xFF00B894);
+        return const Color(0xFF057642);
       case 'rejected':
-        return const Color(0xFFE17055);
+        return const Color(0xFFCC1016);
       default:
-        return const Color(0xFF636E72);
+        return const Color(0xFF8C8C8C);
     }
   }
 }
@@ -617,7 +616,7 @@ class _StatCard extends StatelessWidget {
             style: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: const Color(0xFF191919),
             ),
           ),
           const SizedBox(height: 2),
@@ -625,7 +624,7 @@ class _StatCard extends StatelessWidget {
             title,
             style: TextStyle(
               fontSize: 12,
-              color: Colors.grey[400],
+              color: Colors.grey[600],
             ),
           ),
         ],

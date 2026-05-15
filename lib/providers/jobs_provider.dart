@@ -7,8 +7,10 @@ import '../models/job.dart';
 
 class JobsProvider extends ChangeNotifier {
   List<Job> _jobs = [];
+  List<Job> _savedJobs = []; // Bookmarked from search
   final _uuid = const Uuid();
   static const _storageKey = 'jobs_v2';
+  static const _savedKey = 'saved_jobs_v1';
 
   // Search & filter state
   String _searchQuery = '';
@@ -16,6 +18,7 @@ class JobsProvider extends ChangeNotifier {
   String _sortBy = 'newest'; // newest, company, salary
 
   List<Job> get jobs => _jobs;
+  List<Job> get savedJobs => _savedJobs;
   String get searchQuery => _searchQuery;
   String? get statusFilter => _statusFilter;
   String get sortBy => _sortBy;
@@ -139,8 +142,16 @@ class JobsProvider extends ChangeNotifier {
     if (raw != null) {
       final List decoded = jsonDecode(raw);
       _jobs = decoded.map((e) => Job.fromJson(e)).toList();
-      notifyListeners();
     }
+
+    // Load saved jobs
+    final savedRaw = prefs.getString(_savedKey);
+    if (savedRaw != null) {
+      final List decoded = jsonDecode(savedRaw);
+      _savedJobs = decoded.map((e) => Job.fromJson(e)).toList();
+    }
+
+    notifyListeners();
   }
 
   Future<void> _save() async {
@@ -148,6 +159,14 @@ class JobsProvider extends ChangeNotifier {
     await prefs.setString(
       _storageKey,
       jsonEncode(_jobs.map((j) => j.toJson()).toList()),
+    );
+  }
+
+  Future<void> _saveSaved() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+      _savedKey,
+      jsonEncode(_savedJobs.map((j) => j.toJson()).toList()),
     );
   }
 
@@ -183,6 +202,38 @@ class JobsProvider extends ChangeNotifier {
       _save();
       notifyListeners();
     }
+  }
+
+  // ═══════════════════════════════════════════════
+  // NEW: Saved/Bookmarked Jobs
+  // ═══════════════════════════════════════════════
+
+  bool isJobSaved(String jobId) {
+    return _savedJobs.any((j) => j.id == jobId);
+  }
+
+  void toggleSaveJob(Job job) {
+    final idx = _savedJobs.indexWhere((j) => j.id == job.id);
+    if (idx != -1) {
+      _savedJobs.removeAt(idx);
+    } else {
+      final saved = Job.fromJson(job.toJson());
+      saved.isSaved = true;
+      _savedJobs.add(saved);
+    }
+    _saveSaved();
+    notifyListeners();
+  }
+
+  /// Add a job from search results to applications
+  void addFromSearch(Job searchJob) {
+    final job = Job.fromJson(searchJob.toJson());
+    job.status = 'applied';
+    job.appliedDate = DateTime.now().toIso8601String();
+    _addActivity(job, 'Applied from search');
+    _jobs.add(job);
+    _save();
+    notifyListeners();
   }
 
   void _addActivity(Job job, String action) {

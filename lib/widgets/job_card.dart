@@ -20,17 +20,17 @@ class JobCard extends StatelessWidget {
   Color get _statusAccent {
     switch (job.status) {
       case 'wishlist':
-        return const Color(0xFFFDCB6E);
+        return const Color(0xFFE8A723);
       case 'applied':
-        return const Color(0xFF74B9FF);
+        return const Color(0xFF70B5F9);
       case 'interview':
-        return const Color(0xFFA29BFE);
+        return const Color(0xFF70B5F9);
       case 'offer':
-        return const Color(0xFF00B894);
+        return const Color(0xFF057642);
       case 'rejected':
-        return const Color(0xFFE17055);
+        return const Color(0xFFCC1016);
       default:
-        return const Color(0xFF636E72);
+        return const Color(0xFF8C8C8C);
     }
   }
 
@@ -48,23 +48,23 @@ class JobCard extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              const Color(0xFFE17055).withValues(alpha: 0.0),
-              const Color(0xFFE17055).withValues(alpha: 0.3),
+              const Color(0xFFCC1016).withValues(alpha: 0.0),
+              const Color(0xFFCC1016).withValues(alpha: 0.3),
             ],
           ),
           borderRadius: BorderRadius.circular(16),
         ),
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 20),
-        child: const Icon(Icons.delete_rounded, color: Color(0xFFE17055), size: 28),
+        child: const Icon(Icons.delete_rounded, color: Color(0xFFCC1016), size: 28),
       ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
-          color: const Color(0xFF1A1A2E),
+          color: const Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: const Color(0xFF2A2A4A),
+            color: const Color(0xFFEBEBEB),
             width: 1,
           ),
           boxShadow: [
@@ -125,7 +125,7 @@ class JobCard extends StatelessWidget {
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
-                                color: Colors.white,
+                                color: const Color(0xFF191919),
                               ),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -133,7 +133,7 @@ class JobCard extends StatelessWidget {
                             Text(
                               job.role,
                               style: TextStyle(
-                                color: Colors.grey[400],
+                                color: Colors.grey[600],
                                 fontSize: 13,
                               ),
                               maxLines: 1,
@@ -149,11 +149,11 @@ class JobCard extends StatelessWidget {
                           height: 30,
                           margin: const EdgeInsets.only(right: 4),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF74B9FF).withValues(alpha: 0.15),
+                            color: const Color(0xFF70B5F9).withValues(alpha: 0.15),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: IconButton(
-                            icon: const Icon(Icons.open_in_new_rounded, size: 14, color: Color(0xFF74B9FF)),
+                            icon: const Icon(Icons.open_in_new_rounded, size: 14, color: Color(0xFF70B5F9)),
                             padding: EdgeInsets.zero,
                             tooltip: 'Open job posting',
                             onPressed: () async {
@@ -173,13 +173,13 @@ class JobCard extends StatelessWidget {
                       children: [
                         if (job.location.isNotEmpty) ...[
                           Icon(Icons.location_on_outlined,
-                              size: 14, color: Colors.grey[500]),
+                              size: 14, color: Colors.grey[600]),
                           const SizedBox(width: 4),
                           Flexible(
                             child: Text(
                               job.location,
                               style: TextStyle(
-                                color: Colors.grey[500],
+                                color: Colors.grey[600],
                                 fontSize: 12,
                               ),
                               maxLines: 1,
@@ -191,12 +191,12 @@ class JobCard extends StatelessWidget {
                           const SizedBox(width: 12),
                         if (job.salary.isNotEmpty) ...[
                           Icon(Icons.attach_money_rounded,
-                              size: 14, color: Colors.grey[500]),
+                              size: 14, color: Colors.grey[600]),
                           Flexible(
                             child: Text(
                               job.salary,
                               style: TextStyle(
-                                color: Colors.grey[500],
+                                color: Colors.grey[600],
                                 fontSize: 12,
                               ),
                               maxLines: 1,
@@ -281,16 +281,16 @@ class JobCard extends StatelessWidget {
       badgeColor = Colors.grey;
       text = 'Passed';
     } else if (days == 0) {
-      badgeColor = const Color(0xFFE17055);
+      badgeColor = const Color(0xFFCC1016);
       text = 'Today!';
     } else if (days == 1) {
-      badgeColor = const Color(0xFFE17055);
+      badgeColor = const Color(0xFFCC1016);
       text = 'Tomorrow';
     } else if (days <= 3) {
-      badgeColor = const Color(0xFFFDCB6E);
+      badgeColor = const Color(0xFFE8A723);
       text = '${days}d left';
     } else {
-      badgeColor = const Color(0xFF00B894);
+      badgeColor = const Color(0xFF057642);
       text = '${days}d left';
     }
 
@@ -339,13 +339,13 @@ class JobCard extends StatelessWidget {
       width: 30,
       height: 30,
       decoration: BoxDecoration(
-        color: const Color(0xFF16213E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(8),
       ),
       child: PopupMenuButton<String>(
         icon: const Icon(Icons.more_horiz_rounded, size: 16, color: Colors.grey),
         padding: EdgeInsets.zero,
-        color: const Color(0xFF1A1A2E),
+        color: const Color(0xFFFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         onSelected: (value) {
           switch (value) {
@@ -365,7 +365,7 @@ class JobCard extends StatelessWidget {
             value: 'edit',
             child: Row(
               children: [
-                const Icon(Icons.edit_rounded, size: 18, color: Color(0xFFA29BFE)),
+                const Icon(Icons.edit_rounded, size: 18, color: Color(0xFF70B5F9)),
                 const SizedBox(width: 10),
                 const Text('Edit'),
               ],
@@ -375,7 +375,7 @@ class JobCard extends StatelessWidget {
             value: 'followup',
             child: Row(
               children: [
-                const Icon(Icons.auto_awesome, size: 18, color: Color(0xFFFDCB6E)),
+                const Icon(Icons.auto_awesome, size: 18, color: Color(0xFFE8A723)),
                 const SizedBox(width: 10),
                 const Text('Generate follow-up'),
               ],
@@ -386,9 +386,9 @@ class JobCard extends StatelessWidget {
             value: 'delete',
             child: Row(
               children: [
-                const Icon(Icons.delete_rounded, size: 18, color: Color(0xFFE17055)),
+                const Icon(Icons.delete_rounded, size: 18, color: Color(0xFFCC1016)),
                 const SizedBox(width: 10),
-                const Text('Delete', style: TextStyle(color: Color(0xFFE17055))),
+                const Text('Delete', style: TextStyle(color: Color(0xFFCC1016))),
               ],
             ),
           ),

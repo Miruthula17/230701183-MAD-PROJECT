@@ -39,7 +39,7 @@ class _AIFillSheetState extends State<AIFillSheet>
         const SnackBar(
           content: Row(
             children: [
-              Icon(Icons.warning_amber_rounded, color: Color(0xFFFDCB6E)),
+              Icon(Icons.warning_amber_rounded, color: Color(0xFFE8A723)),
               SizedBox(width: 8),
               Text('Please paste a job description first'),
             ],
@@ -73,7 +73,7 @@ class _AIFillSheetState extends State<AIFillSheet>
         SnackBar(
           content: Row(
             children: [
-              const Icon(Icons.error_outline, color: Color(0xFFE17055)),
+              const Icon(Icons.error_outline, color: Color(0xFFCC1016)),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
@@ -96,7 +96,7 @@ class _AIFillSheetState extends State<AIFillSheet>
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Color(0xFF1A1A2E),
+        color: Color(0xFFFFFFFF),
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Padding(
@@ -130,12 +130,12 @@ class _AIFillSheetState extends State<AIFillSheet>
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [Color(0xFF6C5CE7), Color(0xFFE84393)],
+                      colors: [Color(0xFF0A66C2), Color(0xFFE84393)],
                     ),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: const Icon(Icons.auto_awesome,
-                      color: Colors.white, size: 20),
+                      color: const Color(0xFF191919), size: 20),
                 ),
                 const SizedBox(width: 12),
                 const Expanded(
@@ -147,7 +147,7 @@ class _AIFillSheetState extends State<AIFillSheet>
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: const Color(0xFF191919),
                         ),
                       ),
                       Text(
@@ -165,9 +165,9 @@ class _AIFillSheetState extends State<AIFillSheet>
             // Text field
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF16213E),
+                color: const Color(0xFFFFFFFF),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: const Color(0xFF2A2A4A)),
+                border: Border.all(color: const Color(0xFFEBEBEB)),
               ),
               child: TextField(
                 controller: _controller,
@@ -199,21 +199,21 @@ class _AIFillSheetState extends State<AIFillSheet>
                     gradient: LinearGradient(
                       colors: _loading
                           ? [
-                              const Color(0xFF6C5CE7),
+                              const Color(0xFF0A66C2),
                               Color.lerp(
-                                const Color(0xFFA29BFE),
+                                const Color(0xFF70B5F9),
                                 const Color(0xFFE84393),
                                 _pulseController.value,
                               )!,
                             ]
                           : [
-                              const Color(0xFF6C5CE7),
-                              const Color(0xFFA29BFE),
+                              const Color(0xFF0A66C2),
+                              const Color(0xFF70B5F9),
                             ],
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: const Color(0xFF6C5CE7).withValues(alpha: 0.4),
+                        color: const Color(0xFF0A66C2).withValues(alpha: 0.4),
                         blurRadius: 16,
                         offset: const Offset(0, 6),
                       ),
@@ -230,7 +230,7 @@ class _AIFillSheetState extends State<AIFillSheet>
                         height: 18,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          color: Colors.white,
+                          color: const Color(0xFF191919),
                         ),
                       )
                     : const Icon(Icons.auto_awesome),

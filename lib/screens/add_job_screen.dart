@@ -120,7 +120,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
       SnackBar(
         content: Row(
           children: [
-            const Icon(Icons.check_circle, color: Color(0xFF00B894)),
+            const Icon(Icons.check_circle, color: Color(0xFF057642)),
             const SizedBox(width: 8),
             Text(_isEditing ? 'Job updated!' : 'Job added!'),
           ],
@@ -140,8 +140,8 @@ class _AddJobScreenState extends State<AddJobScreen> {
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: const ColorScheme.dark(
-              primary: Color(0xFF6C5CE7),
-              surface: Color(0xFF1A1A2E),
+              primary: Color(0xFF0A66C2),
+              surface: Color(0xFFFFFFFF),
             ),
           ),
           child: child!,
@@ -183,15 +183,15 @@ class _AddJobScreenState extends State<AddJobScreen> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      const Color(0xFF6C5CE7).withValues(alpha: 0.2),
-                      const Color(0xFFA29BFE).withValues(alpha: 0.1),
+                      const Color(0xFF0A66C2).withValues(alpha: 0.2),
+                      const Color(0xFF70B5F9).withValues(alpha: 0.1),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: const Color(0xFF6C5CE7).withValues(alpha: 0.3),
+                    color: const Color(0xFF0A66C2).withValues(alpha: 0.3),
                   ),
                 ),
                 child: Row(
@@ -199,12 +199,12 @@ class _AddJobScreenState extends State<AddJobScreen> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF6C5CE7).withValues(alpha: 0.3),
+                        color: const Color(0xFF0A66C2).withValues(alpha: 0.3),
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: Icon(
                         _isEditing ? Icons.edit_note_rounded : Icons.post_add_rounded,
-                        color: const Color(0xFFA29BFE),
+                        color: const Color(0xFF70B5F9),
                         size: 28,
                       ),
                     ),
@@ -218,7 +218,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: const Color(0xFF191919),
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -228,7 +228,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                                 : 'Fill in the details or use AI auto-fill',
                             style: TextStyle(
                               fontSize: 13,
-                              color: Colors.grey[400],
+                              color: Colors.grey[600],
                             ),
                           ),
                         ],
@@ -290,11 +290,11 @@ class _AddJobScreenState extends State<AddJobScreen> {
                     const SizedBox(width: 8),
                     Container(
                       decoration: BoxDecoration(
-                        color: const Color(0xFF6C5CE7).withValues(alpha: 0.2),
+                        color: const Color(0xFF0A66C2).withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.open_in_new_rounded, color: Color(0xFFA29BFE)),
+                        icon: const Icon(Icons.open_in_new_rounded, color: Color(0xFF70B5F9)),
                         onPressed: () async {
                           final url = Uri.tryParse(_urlCtrl.text);
                           if (url != null) {
@@ -335,15 +335,15 @@ class _AddJobScreenState extends State<AddJobScreen> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF16213E),
+                  color: const Color(0xFFFFFFFF),
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: const Color(0xFF2A2A4A)),
+                  border: Border.all(color: const Color(0xFFEBEBEB)),
                 ),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     value: _status,
                     isExpanded: true,
-                    dropdownColor: const Color(0xFF16213E),
+                    dropdownColor: const Color(0xFFFFFFFF),
                     icon: const Icon(Icons.keyboard_arrow_down_rounded),
                     items: _statuses
                             .map((s) => DropdownMenuItem<String>(
@@ -351,7 +351,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                                   child: Row(
                                     children: [
                                       Icon(s['icon'] as IconData,
-                                          size: 18, color: const Color(0xFFA29BFE)),
+                                          size: 18, color: const Color(0xFF70B5F9)),
                                       const SizedBox(width: 12),
                                       Text(
                                         s['label'] as String,
@@ -400,11 +400,11 @@ class _AddJobScreenState extends State<AddJobScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF6C5CE7), Color(0xFFA29BFE)],
+                    colors: [Color(0xFF0A66C2), Color(0xFF70B5F9)],
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF6C5CE7).withValues(alpha: 0.4),
+                      color: const Color(0xFF0A66C2).withValues(alpha: 0.4),
                       blurRadius: 16,
                       offset: const Offset(0, 6),
                     ),
@@ -444,16 +444,16 @@ class _AddJobScreenState extends State<AddJobScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
-          color: const Color(0xFF16213E),
+          color: const Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: const Color(0xFF2A2A4A)),
+          border: Border.all(color: const Color(0xFFEBEBEB)),
         ),
         child: Row(
           children: [
             Icon(
               Icons.calendar_today_rounded,
               size: 18,
-              color: date != null ? const Color(0xFFA29BFE) : Colors.grey[600],
+              color: date != null ? const Color(0xFF70B5F9) : Colors.grey[600],
             ),
             const SizedBox(width: 12),
             Expanded(
@@ -470,7 +470,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
             if (date != null)
               GestureDetector(
                 onTap: onClear,
-                child: Icon(Icons.clear_rounded, size: 20, color: Colors.grey[500]),
+                child: Icon(Icons.clear_rounded, size: 20, color: Colors.grey[600]),
               ),
           ],
         ),
@@ -483,9 +483,9 @@ class _AddJobScreenState extends State<AddJobScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF16213E),
+        color: const Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFF2A2A4A)),
+        border: Border.all(color: const Color(0xFFEBEBEB)),
       ),
       child: Column(
         children: logs.asMap().entries.map((entry) {
@@ -516,11 +516,11 @@ class _AddJobScreenState extends State<AddJobScreen> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: isLast
-                              ? const Color(0xFF6C5CE7)
+                              ? const Color(0xFF0A66C2)
                               : Colors.grey[600],
                           border: isLast
                               ? Border.all(
-                                  color: const Color(0xFFA29BFE),
+                                  color: const Color(0xFF70B5F9),
                                   width: 2,
                                 )
                               : null,
@@ -548,7 +548,7 @@ class _AddJobScreenState extends State<AddJobScreen> {
                           log['action'] ?? '',
                           style: TextStyle(
                             fontSize: 13,
-                            color: isLast ? Colors.white : Colors.grey[400],
+                            color: isLast ? Colors.white : Colors.grey[600],
                             fontWeight: isLast ? FontWeight.w600 : FontWeight.normal,
                           ),
                         ),
@@ -575,14 +575,14 @@ class _AddJobScreenState extends State<AddJobScreen> {
   Widget _buildSectionLabel(String label, IconData icon) {
     return Row(
       children: [
-        Icon(icon, size: 18, color: const Color(0xFFA29BFE)),
+        Icon(icon, size: 18, color: const Color(0xFF70B5F9)),
         const SizedBox(width: 8),
         Text(
           label,
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colors.white70,
+            color: Color(0xFF666666),
             letterSpacing: 0.3,
           ),
         ),

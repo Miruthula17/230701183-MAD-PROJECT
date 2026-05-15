@@ -64,7 +64,7 @@ class _FollowUpScreenState extends State<FollowUpScreen>
             const Text('Follow-up Email', style: TextStyle(fontSize: 18)),
             Text(
               '${widget.job.company} — ${widget.job.role}',
-              style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+              style: TextStyle(fontSize: 12, color: Colors.grey[600]),
             ),
           ],
         ),
@@ -77,11 +77,11 @@ class _FollowUpScreenState extends State<FollowUpScreen>
             Container(
               margin: const EdgeInsets.only(right: 8),
               decoration: BoxDecoration(
-                color: const Color(0xFF00B894).withValues(alpha: 0.2),
+                color: const Color(0xFF057642).withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                icon: const Icon(Icons.copy_rounded, color: Color(0xFF00B894)),
+                icon: const Icon(Icons.copy_rounded, color: Color(0xFF057642)),
                 tooltip: 'Copy to clipboard',
                 onPressed: () {
                   Clipboard.setData(ClipboardData(text: _email));
@@ -89,7 +89,7 @@ class _FollowUpScreenState extends State<FollowUpScreen>
                     SnackBar(
                       content: const Row(
                         children: [
-                          Icon(Icons.check_circle, color: Color(0xFF00B894)),
+                          Icon(Icons.check_circle, color: Color(0xFF057642)),
                           SizedBox(width: 8),
                           Text('Copied to clipboard!'),
                         ],
@@ -104,11 +104,11 @@ class _FollowUpScreenState extends State<FollowUpScreen>
             Container(
               margin: const EdgeInsets.only(right: 8),
               decoration: BoxDecoration(
-                color: const Color(0xFF6C5CE7).withValues(alpha: 0.2),
+                color: const Color(0xFF0A66C2).withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
-                icon: const Icon(Icons.refresh_rounded, color: Color(0xFFA29BFE)),
+                icon: const Icon(Icons.refresh_rounded, color: Color(0xFF70B5F9)),
                 tooltip: 'Regenerate',
                 onPressed: () {
                   setState(() => _loading = true);
@@ -136,10 +136,10 @@ class _FollowUpScreenState extends State<FollowUpScreen>
                   shape: BoxShape.circle,
                   gradient: SweepGradient(
                     colors: const [
-                      Color(0xFF6C5CE7),
-                      Color(0xFFA29BFE),
+                      Color(0xFF0A66C2),
+                      Color(0xFF70B5F9),
                       Color(0xFFE84393),
-                      Color(0xFF6C5CE7),
+                      Color(0xFF0A66C2),
                     ],
                     transform: GradientRotation(
                       _shimmerController.value * 6.28,
@@ -148,7 +148,7 @@ class _FollowUpScreenState extends State<FollowUpScreen>
                 ),
                 child: const Icon(
                   Icons.auto_awesome,
-                  color: Colors.white,
+                  color: const Color(0xFF191919),
                   size: 32,
                 ),
               );
@@ -160,13 +160,13 @@ class _FollowUpScreenState extends State<FollowUpScreen>
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: Colors.white,
+              color: const Color(0xFF191919),
             ),
           ),
           const SizedBox(height: 8),
           Text(
             'AI is crafting a professional follow-up',
-            style: TextStyle(fontSize: 14, color: Colors.grey[500]),
+            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
           ),
         ],
       ),
@@ -185,25 +185,25 @@ class _FollowUpScreenState extends State<FollowUpScreen>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0xFF6C5CE7).withValues(alpha: 0.2),
+                  const Color(0xFF0A66C2).withValues(alpha: 0.2),
                   const Color(0xFFE84393).withValues(alpha: 0.1),
                 ],
               ),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: const Color(0xFF6C5CE7).withValues(alpha: 0.3),
+                color: const Color(0xFF0A66C2).withValues(alpha: 0.3),
               ),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(Icons.auto_awesome, size: 16, color: Color(0xFFA29BFE)),
+                const Icon(Icons.auto_awesome, size: 16, color: Color(0xFF70B5F9)),
                 const SizedBox(width: 8),
                 Text(
                   'Generated by Gemini AI',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey[400],
+                    color: Colors.grey[600],
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -215,9 +215,9 @@ class _FollowUpScreenState extends State<FollowUpScreen>
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: const Color(0xFF16213E),
+              color: const Color(0xFFFFFFFF),
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: const Color(0xFF2A2A4A)),
+              border: Border.all(color: const Color(0xFFEBEBEB)),
             ),
             child: TextField(
               controller: TextEditingController(text: _email),
@@ -225,7 +225,7 @@ class _FollowUpScreenState extends State<FollowUpScreen>
               style: const TextStyle(
                 fontSize: 15,
                 height: 1.6,
-                color: Colors.white,
+                color: const Color(0xFF191919),
               ),
               decoration: const InputDecoration(
                 border: InputBorder.none,
@@ -243,7 +243,7 @@ class _FollowUpScreenState extends State<FollowUpScreen>
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
               gradient: const LinearGradient(
-                colors: [Color(0xFF00B894), Color(0xFF00CEC9)],
+                colors: [Color(0xFF057642), Color(0xFF057642)],
               ),
             ),
             child: ElevatedButton.icon(
@@ -253,7 +253,7 @@ class _FollowUpScreenState extends State<FollowUpScreen>
                   const SnackBar(
                     content: Row(
                       children: [
-                        Icon(Icons.check_circle, color: Color(0xFF00B894)),
+                        Icon(Icons.check_circle, color: Color(0xFF057642)),
                         SizedBox(width: 8),
                         Text('Email copied to clipboard!'),
                       ],

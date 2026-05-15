@@ -23,17 +23,17 @@ class ColumnList extends StatelessWidget {
   Color get _columnAccent {
     switch (columnId) {
       case 'wishlist':
-        return const Color(0xFFFDCB6E);
+        return const Color(0xFFE8A723);
       case 'applied':
-        return const Color(0xFF74B9FF);
+        return const Color(0xFF70B5F9);
       case 'interview':
-        return const Color(0xFFA29BFE);
+        return const Color(0xFF70B5F9);
       case 'offer':
-        return const Color(0xFF00B894);
+        return const Color(0xFF057642);
       case 'rejected':
-        return const Color(0xFFE17055);
+        return const Color(0xFFCC1016);
       default:
-        return const Color(0xFF636E72);
+        return const Color(0xFF8C8C8C);
     }
   }
 
@@ -215,17 +215,17 @@ class ColumnList extends StatelessWidget {
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF1A1A2E),
+        backgroundColor: const Color(0xFFFFFFFF),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text('Delete Job?'),
         content: Text(
           'Remove "${job.company} — ${job.role}" from your tracker?',
-          style: TextStyle(color: Colors.grey[400]),
+          style: TextStyle(color: Colors.grey[600]),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: Text('Cancel', style: TextStyle(color: Colors.grey[500])),
+            child: Text('Cancel', style: TextStyle(color: Colors.grey[600])),
           ),
           ElevatedButton(
             onPressed: () {
@@ -235,7 +235,7 @@ class ColumnList extends StatelessWidget {
                 const SnackBar(
                   content: Row(
                     children: [
-                      Icon(Icons.delete_rounded, color: Color(0xFFE17055)),
+                      Icon(Icons.delete_rounded, color: Color(0xFFCC1016)),
                       SizedBox(width: 8),
                       Text('Job removed'),
                     ],
@@ -244,7 +244,7 @@ class ColumnList extends StatelessWidget {
               );
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFE17055),
+              backgroundColor: const Color(0xFFCC1016),
             ),
             child: const Text('Delete'),
           ),

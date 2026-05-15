@@ -8,11 +8,11 @@ void main() {
     await tester.pumpWidget(
       ChangeNotifierProvider(
         create: (_) => JobsProvider(),
-        child: const JobTrackerApp(),
+        child: const JobGenieApp(),
       ),
     );
 
-    expect(find.text('Job Tracker'), findsOneWidget);
+    expect(find.text('My Applications'), findsOneWidget);
     expect(find.text('Add Job'), findsOneWidget);
   });
 }
